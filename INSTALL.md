@@ -110,9 +110,8 @@ XFormers is an optional dependency that can significantly speed up the training 
 pip install xformers==v0.0.28.post3 --index-url https://download.pytorch.org/whl/cu124
 ```
 
-## Kaolin Installation (TODO - NOT WORKING YET)
+## Kaolin Installation
 Kaolin is a library that provides tools for working with 3D data in PyTorch.
-for PyTorch 2.5.1 and CUDA 12.4, you need to build from the source using this [instructions](https://kaolin.readthedocs.io/en/latest/notes/installation.html) and this [Link](https://github.com/NVIDIAGameWorks/kaolin/issues/897#issuecomment-2914439465)
 
 To install Kaolin, run the following command in your WSL terminal:
 
@@ -132,7 +131,7 @@ For NVIDIA RTX A2000 (4GB) Laptop GPU based on NVIDIA **Ampere** architecture, y
 To install FlashAttention-2, run the following command in your WSL terminal:
 
 ```bash
-pip install flash-attn==2.8.1 --no-build-isolation
+MAX_JOBS=2 pip install flash-attn --no-build-isolation
 ```
 
 ## Nvdiffrast Installation
@@ -172,7 +171,7 @@ pip install /tmp/extensions/vox2seq
 
 ### SPCONV (MISSING CUDA 12.8 Package - Installed from Comfy3d)
 ```bash
-pip install spconv-cu128
+pip install spconv-cu124
 ```
 
 ### Demo
