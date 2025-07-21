@@ -76,6 +76,17 @@ Before installing the requirements, ensure that you have the latest version of p
 pip install -U pip setuptools wheel
 ```
 
+## Install libtinfo5
+
+As of Ubuntu 24.04, the `libtinfo5` package is not installed by default.
+To install it, run the following command in your WSL terminal:
+
+```bash
+sudo apt update
+wget http://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb
+sudo apt install ./libtinfo5_6.3-2ubuntu0.1_amd64.deb
+```
+
 ## PyTorch Installation
 PyTorch is a deep learning framework that is required for running the code. it has strong dependencies on CUDA and cuDNN libraries and requires specific versions to work correctly with the installed CUDA Toolkit.
 
@@ -135,8 +146,8 @@ MAX_JOBS=2 pip install flash-attn --no-build-isolation
 ```
 
 ## Nvdiffrast Installation
-Nvdiffrast is a PyTorch/TensorFlow library that provides high-performance primitive operations for rasterization-based differentiable rendering.
 
+Nvdiffrast is a PyTorch/TensorFlow library that provides high-performance primitive operations for rasterization-based differentiable rendering.
 To install Nvdiffrast, run the following command in your WSL terminal:
 
 ```bash
@@ -174,7 +185,6 @@ pip install /tmp/extensions/vox2seq
 pip install spconv-cu124
 ```
 
-### Demo
-```bash
-pip install spconv-cu128
-```
+# Download The Model Locally
+
+# 
