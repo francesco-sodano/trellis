@@ -1,4 +1,7 @@
 import os
+# Add the project root to Python path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
 # os.environ['ATTN_BACKEND'] = 'xformers'   # Can be 'flash-attn' or 'xformers', default is 'flash-attn'
 os.environ['SPCONV_ALGO'] = 'native'        # Can be 'native' or 'auto', default is 'auto'.
                                             # 'auto' is faster but will do benchmarking at the beginning.
@@ -16,9 +19,9 @@ pipeline.cuda()
 
 # Load an image
 images = [
-    Image.open("./example_multi_image/character_1.png"),
-    Image.open("./example_multi_image/character_2.png"),
-    Image.open("./example_multi_image/character_3.png"),
+    Image.open("./examples/example_multi_image/orangeguy_1.png"),
+    Image.open("./examples/example_multi_image/orangeguy_2.png"),
+    Image.open("./examples/example_multi_image/orangeguy_3.png"),
 ]
 
 # Run the pipeline
@@ -43,4 +46,4 @@ outputs = pipeline.run_multi_image(
 video_gs = render_utils.render_video(outputs['gaussian'][0])['color']
 video_mesh = render_utils.render_video(outputs['mesh'][0])['normal']
 video = [np.concatenate([frame_gs, frame_mesh], axis=1) for frame_gs, frame_mesh in zip(video_gs, video_mesh)]
-imageio.mimsave("sample_multi.mp4", video, fps=30)
+imageio.mimsave("orangeguy_multi.mp4", video, fps=30)
