@@ -16,9 +16,9 @@ pipeline.cuda()
 
 # Load an image
 images = [
-    Image.open("assets/example_multi_image/character_1.png"),
-    Image.open("assets/example_multi_image/character_2.png"),
-    Image.open("assets/example_multi_image/character_3.png"),
+    Image.open("./example_multi_image/character_1.png"),
+    Image.open("./example_multi_image/character_2.png"),
+    Image.open("./example_multi_image/character_3.png"),
 ]
 
 # Run the pipeline
