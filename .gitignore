@@ -429,5 +429,3 @@ sdist/
 *.mp4
 *.glb
 *.ply
-/representations/mesh/**/*
-/models/**/*
