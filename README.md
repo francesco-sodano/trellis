@@ -51,6 +51,17 @@ the rusult should be similar to this:
 
 Your cuda version should be **12.4** or higher.
 
+## Clone the Repository
+
+As there is submodules in the project, you need to clone the repository with submodules.
+
+To clone the repository, run the following command in your WSL terminal:
+
+```bash
+git clone --recurse-submodules https://github.com/francesco-sodano/trellis
+cd trellis
+```
+
 ## Installation Steps
 
 ### Install CUDA Toolkit on WSL 2
@@ -128,9 +139,13 @@ pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https
 To test if PyTorch is correctly installed, run the following command in your WSL terminal:
 
 ```bash
-python ./test_pytorch.py
+python ./tests/test_pytorch.py
 ```
 If the installation is successful, you should see the version of PyTorch printed in the terminal.
+
+the result should be similar to this:
+
+![PyTorch Version Check](assets/images/test_pytorch.jpg "PyTorch Version Check")
 
 
 ### Basic dependencies
@@ -157,6 +172,8 @@ To install Kaolin, run the following command in your WSL terminal:
 ```bash
 pip install kaolin==0.17.0 -f https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-2.5.1_cu124.html
 ```
+
+Note: the Kaolin library requires numpy version **1.26.4** during the installation this will unninstall numpy version **2.1.2**. that is expected.
 
 ### FlashAttention Installation
 FlashAttention is an algorithm that reorders the attention computation and leverages tiling and recomputation to significantly speed it up and reduce memory usage from quadratic to linear in sequence length.
@@ -206,7 +223,7 @@ cp -r extensions/vox2seq /tmp/extensions/vox2seq
 pip install /tmp/extensions/vox2seq
 ```
 
-### SPCONV (MISSING CUDA 12.8 Package - Installed from Comfy3d)
+### SPCONV
 ```bash
 pip install spconv-cu124
 ```
@@ -236,10 +253,32 @@ TrellisImageTo3DPipeline.from_pretrained("/path/to/TRELLIS-image-large")
 
 [TODO]
 
-## 💡 Usage
+## 💡 Test the Models
 
+To test the models, you can run the provided example scripts. The example scripts are located in the `examples` folder.
 
-##
+### Example: Generate 3D Asset from Image (No Video)
+
+you can run the script `example_image_no_video.py` to generate a 3D asset from an image without video output. This script uses the `TRELLIS-image-large` model to generate a 3D asset from an image.
+
+```bash
+python examples/example_image_no_video.py
+```
+
+### Example: Generate 3D Asset from Text (With Video)
+
+you can run the script `example_text.py` to generate a 3D asset from text with video output. This script uses the `TRELLIS-text-xlarge` model to generate a 3D asset from text.
+
+```bash
+python examples/example_text.py
+```
+
+### Example: Generate 3D Asset from multiple images
+you can run the script `example_multi_image.py` to generate a 3D asset from multiple images. This script uses the `TRELLIS-image-large` model to generate a 3D asset from multiple images.
+
+```bash
+python examples/example_multi_image.py
+```
 
 <!-- License -->
 ## ⚖️ Licenses
